@@ -1,4 +1,5 @@
-package Principal;
+package vista;
+
 
 import javax.swing.JOptionPane;
 
@@ -127,7 +128,7 @@ public class Login extends javax.swing.JFrame {
         usuario = user.getText();
         contrasena=pass.getText();
         if(usuario.equals("root")&&contrasena.equals("123")){
-            Principal pl = new Principal();
+            Vista pl = new Vista();
             pl.setVisible(true);
             this.dispose();
         }else{
@@ -160,6 +161,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
