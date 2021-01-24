@@ -21,7 +21,7 @@ public class Modelo {
     Connection cn = Conexion();
 
     public void CargarMetodos() {
-        MostrarTabla();
+        MostrarTabla("");
     }
 
     public Connection Conexion() {
@@ -37,22 +37,44 @@ public class Modelo {
 
     public void Actualizar() {
         String id = v.txtId.getText();
+        if (v.txtNombre.getText().equals("") || v.txtApellido.getText().equals("") || v.txtEdad.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Faltan campos");
+        } else {
+            try {
+                PreparedStatement ppt = cn.prepareStatement("UPDATE usuario SET "
+                        + "Nombre = '" + v.txtNombre.getText() + "',"
+                        + "Apellido = '" + v.txtApellido.getText() + "',"
+                        + "Edad = '" + v.txtEdad.getText() + "',"
+                        + "Sexo = '" + Combo.getSelectedItem() + "',"
+                        + "Fecha = '" + v.txtFecha.getText() + "'"
+                        + "WHERE id = '" + id + "'");
+                System.out.println(ppt.toString());
 
-        try {
-            PreparedStatement ppt = cn.prepareStatement("UPDATE usuario SET "
-                    + "Nombre = '" + v.txtNombre.getText() + "',"
-                    + "Apellido = '" + v.txtApellido.getText() + "',"
-                    + "Edad = '" + v.txtEdad.getText()+ "',"
-                    + "Sexo = '" + Combo.getSelectedItem() + "',"
-                    + "Fecha = '" + v.txtFecha.getText() + "'"
-                    + "WHERE id = '" + id + "'" );
-            System.out.println("Error" +ppt.toString());
-            
-            ppt.executeUpdate();
-            MostrarTabla();
-            JOptionPane.showMessageDialog(null, "Datos Actualizados"); 
-        } catch (SQLException e) {
-           System.out.println("Error" + e.getMessage());
+                ppt.executeUpdate();
+                MostrarTabla("");
+                JOptionPane.showMessageDialog(null, "Datos Actualizados");
+            } catch (SQLException e) {
+                System.out.println("Error" + e.getMessage());
+            }
+        }
+    }
+
+    public void Eliminar() {
+        int fila = v.Tabla.getSelectedRow();
+        if (fila >= 0) {
+            try {
+                String id = v.Tabla.getValueAt(fila, 0).toString();
+                PreparedStatement ppt = cn.prepareStatement("DELETE FROM usuario "
+                        + "where id = '" + id + "'");
+                System.out.println(ppt.toString());
+                ppt.executeUpdate();
+                MostrarTabla("");
+                JOptionPane.showMessageDialog(null, "Dato Eliminado");
+            } catch (SQLException e) {
+                System.out.println("Error" + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila");
         }
     }
 
@@ -71,7 +93,15 @@ public class Modelo {
         }
     }
 
-    void MostrarTabla() {
+    public void Buscar() {
+        if (v.txtId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo Vacio");
+        } else {
+            MostrarTabla(v.txtId.getText());
+        }
+    }
+
+    void MostrarTabla(String valor) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id");
         modelo.addColumn("Nombre");
@@ -84,8 +114,12 @@ public class Modelo {
         v.Combo.addItem("--Selecciona--");
         v.Combo.addItem("Hombre");
         v.Combo.addItem("Mujer");
-
-        String sql = "SELECT * FROM usuario";
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT * FROM usuario";
+        } else {
+            sql = "SELECT * FROM usuario where id = '" + valor + "'";
+        }
 
         String datos[] = new String[6];
         try {
@@ -115,31 +149,35 @@ public class Modelo {
         String mes = Integer.toString(v.Fecha.getCalendar().get(Calendar.MONTH) + 1);
         String year = Integer.toString(v.Fecha.getCalendar().get(Calendar.YEAR));
         String fecha = (dia + "/" + mes + "/" + year);
+        if (v.txtNombre.getText().equals("") || v.txtApellido.getText().equals("") || v.txtEdad.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Faltan campos");
+        } else {
+            try {
+                PreparedStatement ppt = cn.prepareStatement("INSERT INTO usuario(Nombre,Apellido,Edad,Sexo,Fecha)"
+                        + "VALUES(?,?,?,?,?)");
+                ppt.setString(1, v.txtNombre.getText());
+                ppt.setString(2, v.txtApellido.getText());
+                ppt.setString(3, v.txtEdad.getText());
 
-        try {
-            PreparedStatement ppt = cn.prepareStatement("INSERT INTO usuario(Nombre,Apellido,Edad,Sexo,Fecha)"
-                    + "VALUES(?,?,?,?,?)");
-            ppt.setString(1, v.txtNombre.getText());
-            ppt.setString(2, v.txtApellido.getText());
-            ppt.setString(3, v.txtEdad.getText());
+                if (v.Combo.getSelectedItem().toString().equals("--Selecciona--")) {
+                    JOptionPane.showMessageDialog(null, "Selecciona un valor en Sexo");
+                } else {
+                    ppt.setString(4, v.Combo.getSelectedItem().toString());
 
-            if (v.Combo.getSelectedItem().toString().equals("--Selecciona--")) {
-                JOptionPane.showMessageDialog(null, "Selecciona un valor en Sexo");
-            } else {
-                ppt.setString(4, v.Combo.getSelectedItem().toString());
+                    v.txtNombre.setText("");
+                    v.txtApellido.setText("");
+                    v.txtEdad.setText("");
+                    ppt.setString(5, fecha);
 
-                v.txtNombre.setText("");
-                v.txtApellido.setText("");
-                v.txtEdad.setText("");
-                ppt.setString(5, fecha);
-
-                ppt.executeUpdate();
-                MostrarTabla();
+                    ppt.executeUpdate();
+                    MostrarTabla("");
+                    JOptionPane.showMessageDialog(null, "Datos Guardados");
+                }
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Datos Guardados");
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Datos Guardados");
         }
+
 
         /*
         if(mujer.isSelected()){

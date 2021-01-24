@@ -54,6 +54,8 @@ public class Vista extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
         bActualizar = new javax.swing.JButton();
+        bEliminar = new javax.swing.JButton();
+        bBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -107,6 +109,10 @@ public class Vista extends javax.swing.JFrame {
 
         bActualizar.setText("Actualizar");
 
+        bEliminar.setText("Eliminar");
+
+        bBuscar.setText("Buscar");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -139,17 +145,20 @@ public class Vista extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(EnviarDatos)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bBuscar)
+                                .addGap(26, 26, 26)
+                                .addComponent(bconsultar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bconsultar))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(EnviarDatos)
-                                .addGap(18, 18, 18)
-                                .addComponent(bActualizar)))))
-                .addContainerGap(513, Short.MAX_VALUE))
+                                .addComponent(bEliminar))
+                            .addComponent(bActualizar))))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +192,9 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bconsultar))
+                    .addComponent(bconsultar)
+                    .addComponent(bEliminar)
+                    .addComponent(bBuscar))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -312,6 +323,8 @@ public class Vista extends javax.swing.JFrame {
     public static com.toedter.calendar.JDateChooser Fecha;
     public static javax.swing.JTable Tabla;
     public static javax.swing.JButton bActualizar;
+    public static javax.swing.JButton bBuscar;
+    public static javax.swing.JButton bEliminar;
     public static javax.swing.JButton bconsultar;
     private javax.swing.ButtonGroup botones;
     private javax.swing.JLabel jLabel1;
