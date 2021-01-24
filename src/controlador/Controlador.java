@@ -25,6 +25,7 @@ public class Controlador implements ActionListener{
         this.m = m;
         this.v = v;
         this.v.EnviarDatos.addActionListener(this);
+        this.v.bconsultar.addActionListener(this);
     }
     
     public void Iniciar(){
@@ -44,6 +45,13 @@ public class Controlador implements ActionListener{
                 m.EnviarDatos();
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, ex);
+            }
+        }else  if(v.bconsultar == e.getSource()){
+            try{
+                m.Consultar();
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+                System.out.println(e.toString());
             }
         }
     }

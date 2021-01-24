@@ -50,13 +50,15 @@ public class Vista extends javax.swing.JFrame {
         Combo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         Fecha = new com.toedter.calendar.JDateChooser();
+        bconsultar = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setText("Nombre");
 
@@ -93,6 +95,14 @@ public class Vista extends javax.swing.JFrame {
 
         jLabel5.setText("Fecha");
 
+        bconsultar.setText("Consultar");
+
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -103,7 +113,9 @@ public class Vista extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtFecha)
+                        .addGap(18, 18, 18)
+                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -112,8 +124,12 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EnviarDatos)
-                            .addComponent(txtEdad)))
+                            .addComponent(txtEdad)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(EnviarDatos)
+                                .addGap(28, 28, 28)
+                                .addComponent(bconsultar)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -122,7 +138,7 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,12 +159,16 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(EnviarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EnviarDatos)
+                    .addComponent(bconsultar))
                 .addGap(41, 41, 41))
         );
 
@@ -229,6 +249,10 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +296,7 @@ public class Vista extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarDatos;
     public static com.toedter.calendar.JDateChooser Fecha;
     public static javax.swing.JTable Tabla;
+    public static javax.swing.JButton bconsultar;
     private javax.swing.ButtonGroup botones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -285,6 +310,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JTextField txtApellido;
     public static javax.swing.JTextField txtEdad;
+    public static javax.swing.JTextField txtFecha;
     public static javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
