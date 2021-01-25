@@ -134,12 +134,14 @@
                                           <Component id="bconsultar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="bEliminar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="bReporte" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="bActualizar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="347" max="32767" attributes="0"/>
+                          <EmptySpace pref="256" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -185,6 +187,7 @@
                               <Component id="bconsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="bEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="bBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="49" max="32767" attributes="0"/>
                       </Group>
@@ -313,6 +316,14 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="bReporte">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Generar Reporte"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -354,7 +365,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="791" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="820" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

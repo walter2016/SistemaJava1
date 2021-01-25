@@ -10,6 +10,11 @@ import javax.swing.table.DefaultTableModel;
 import controlador.Controlador;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.Vista;
 import static vista.Vista.Combo;
 
@@ -34,7 +39,22 @@ public class Modelo {
         }
         return cc;
     }
-
+    
+    public void GenerarReporte(){
+        try {
+            String ruta = "C:\\Users\\walte\\Downloads\\Sistema\\Sistema\\src\\"
+                    + "vista\\ReporteUsuarios.jrxml";
+            JasperReport rj = JasperCompileManager.compileReport(ruta);
+            JasperPrint mr = JasperFillManager.fillReport(rj, null,cn);
+            JasperViewer view = new JasperViewer(mr,false);
+            view.setVisible(true);
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "No se pudo mostar el reporte");
+        }
+    
+    }
+    
+  
     public void Actualizar() {
         String id = v.txtId.getText();
         if (v.txtNombre.getText().equals("") || v.txtApellido.getText().equals("") || v.txtEdad.getText().equals("")) {
@@ -54,7 +74,7 @@ public class Modelo {
                 MostrarTabla("");
                 JOptionPane.showMessageDialog(null, "Datos Actualizados");
             } catch (SQLException e) {
-                System.out.println("Error" + e.getMessage());
+                System.out.println("Error de este error" + e.getMessage());
             }
         }
     }

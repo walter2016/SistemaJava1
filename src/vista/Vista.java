@@ -56,6 +56,7 @@ public class Vista extends javax.swing.JFrame {
         bActualizar = new javax.swing.JButton();
         bEliminar = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
+        bReporte = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -113,6 +114,8 @@ public class Vista extends javax.swing.JFrame {
 
         bBuscar.setText("Buscar");
 
+        bReporte.setText("Generar Reporte");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -156,9 +159,11 @@ public class Vista extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(bconsultar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bEliminar))
+                                .addComponent(bEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bReporte))
                             .addComponent(bActualizar))))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +199,8 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bconsultar)
                     .addComponent(bEliminar)
-                    .addComponent(bBuscar))
+                    .addComponent(bBuscar)
+                    .addComponent(bReporte))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -235,7 +241,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 791, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,6 +331,7 @@ public class Vista extends javax.swing.JFrame {
     public static javax.swing.JButton bActualizar;
     public static javax.swing.JButton bBuscar;
     public static javax.swing.JButton bEliminar;
+    public static javax.swing.JButton bReporte;
     public static javax.swing.JButton bconsultar;
     private javax.swing.ButtonGroup botones;
     private javax.swing.JLabel jLabel1;

@@ -29,6 +29,7 @@ public class Controlador implements ActionListener{
         this.v.bActualizar.addActionListener(this);
         this.v.bEliminar.addActionListener(this);
         this.v.bBuscar.addActionListener(this);
+        this.v.bReporte.addActionListener(this);
     }
     
     public void Iniciar(){
@@ -75,6 +76,14 @@ public class Controlador implements ActionListener{
         } else  if(v.bBuscar == e.getSource()){
             try{
                 m.Buscar();
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+                System.out.println(e.toString());
+            }
+        }
+        else  if(v.bReporte == e.getSource()){
+            try{
+                m.GenerarReporte();
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, ex);
                 System.out.println(e.toString());
